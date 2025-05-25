@@ -26,7 +26,7 @@ The project aims to provide hands-on experience with PKI concepts, including cre
 
 ---
 
-##📦Table of Contents
+## 📦Table of Contents
 
 - [Step 1: Installing Step CLI](#step-1-installing-stepcli)
 - [Step 2: Initializing the CA](#step-2-initializing-the-ca)
