@@ -8,7 +8,7 @@ Date: May 25, 2025
 
 ---
 
-## 🚀Project Overview
+## Project Overview
 
 This repository contains the implementation of a Public Key Infrastructure (PKI) environment, where I set up a private Certificate Authority (CA) using SmallStep. The project demonstrates how to create and configure certificates, and securely connect a client to a server using HTTPS.
 
@@ -26,7 +26,7 @@ The project aims to provide hands-on experience with PKI concepts, including cre
 
 ---
 
-## Table of Contents
+##📦Table of Contents
 
 - [Step 1: Installing Step CLI](#step-1-installing-stepcli)
 - [Step 2: Initializing the CA](#step-2-initializing-the-ca)
@@ -39,24 +39,38 @@ The project aims to provide hands-on experience with PKI concepts, including cre
 
 ---
 
-## **Step 1: Installing Step CLI
+## Step 1: Installing Step CLI
 To install SmallStep CLI on macOS, run the following commands:
 
 ```bash
 brew install step
 step version
 ```
-![Installing Step CLI](./screenshots/Screenshot_at_May_25 21-29-38.png) 
+![Installing Step CLI](./screenshots/brewinstall1.png) 
+![Installing Step CLI](./screenshots/brewinstall2.png) 
+
+---
+
 ## Step 2: Initializing the CA
 Now, initialize the Certificate Authority (CA) with the following command:
 ```bash
 step ca init
 ```
+![Initializing the CA](./screenshots/stepcainit3.png) 
+![Initializing the CA](./screenshots/stepcainit2.png) 
+
+
+---
+
 ## Step 3: Launching CA
 Launch the CA using this command:
 ```bash
 step-ca $(step path)/config/ca.json
 ```
+![Launching CA](./screenshots/json.png) 
+![Launching CA](./screenshots/json.png) 
+
+---
 
 ## Step 4: Generating a client certificate and checking it 
 To generate a client certificate and inspect its details, use these commands:
@@ -65,6 +79,10 @@ step ca certificate "client.local" client.crt client.key
 
 step certificate inspect client.crt 
 ```
+![Generating a client certificate and checking it](./screenshots/stepcacertificate.png)
+![Generating a client certificate and checking it](./screenshots/stepcasertificate2.png)
+
+---
 
 ## Step 5: Regenerating certificates with bigger expiring time and launching https server with this certificates
 To regenerate the certificate with an extended expiry time (e.g., 23 hours), run:
@@ -72,6 +90,7 @@ To regenerate the certificate with an extended expiry time (e.g., 23 hours), run
 step ca certificate "client.local" client.crt client.key \
 --not-after=23h
 ```
+![Generating a client certificate and checking it](./screenshots/clientlocal.png)
 
 ## Step 6: Server Code
 Create a simple HTTPS server using the generated client certificates. 
@@ -102,3 +121,7 @@ https
 • Certificate issuance and verification
 • Client connection
 • Application in HTTPS server
+
+![Generating a client certificate and checking it](./screenshots/serverinfo.png)
+![Generating a client certificate and checking it](./screenshots/serverinfo2.png)
+![Generating a client certificate and checking it](./screenshots/serverinfo3.png)
